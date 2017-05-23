@@ -1,5 +1,10 @@
-{{!-- The following component displays Ember's default welcome message. --}}
-{{welcome-page}}
-{{!-- Feel free to remove this! --}}
-
+{{#runkit-embed
+  source='greet(process.env.NAME, process.env.HOST);'
+  preamble='function greet(name, host) { console.log(`Hello, ${ name }. Welcome to ${ host }!`); }'
+  env=(list 'NAME=Jim' 'HOST=RunKit')
+  nodeVersion=7
+  minHeight='150px'
+  as |embed|}}
+  {{delegate-button text='Run' action=(action embed.evaluate)}}
+{{/runkit-embed}}
 {{outlet}}

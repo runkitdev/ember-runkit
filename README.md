@@ -107,8 +107,8 @@ Specify the Unix time in milliseconds at which packages should resolved. Package
 
 ```hbs
 {{runkit-embed
-  source='console.log("Hello, world!")'
-  packageResolutionTimestamp=1468195200000}}
+  source='require("babel")'
+  packageTimestamp=1468195200000}}
 ```
 
 ### preamble : string

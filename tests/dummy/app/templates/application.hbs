@@ -4,6 +4,8 @@
   env=(list 'NAME=Jim' 'HOST=RunKit')
   nodeVersion=7
   minHeight='150px'
+  onLoad=(action 'onLoad')
+  onEvaluate=(action 'onEvaluate')
   as |embed|}}
   {{delegate-button text='Run' action=(action embed.evaluate)}}
 {{/runkit-embed}}

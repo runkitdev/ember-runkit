@@ -30,7 +30,7 @@ If you want to include the embed library on-demand, see [On-Demand Sourcing](#on
 
 Don't forget to check out the [RunKit embed docs](https://runkit.com/docs/embed#options).
 
-## API
+## Data
 
 ### source : string
 
@@ -78,6 +78,7 @@ Provide a list of environment variables accessible in the notebook through proce
 ```hbs
 {{runkit-embed
   source='console.log(`Hello, ${ process.env.FIRST_NAME } ${ process.env.LAST_NAME }!`)'
+  env=(list 'FIRST_NAME=Haskell' 'LAST_NAME=Curry')
   nodeVersion='7'}}
 ```
 
@@ -120,6 +121,38 @@ Specify source code that is run before the main source. This code will not be sh
 {{runkit-embed
   source='console.log(_.map(_.add(1), [1, 2, 3]))'
   preamble='const _ = require("lodash/fp")'}}
+```
+
+## Actions
+
+### onLoad : function
+
+Provide a callback that is run when the embed is loaded.
+
+```js
+{{runkit-embed
+    source='console.log("Hello, world!")'
+    onLoad=(action 'onLoad')}}
+```
+
+### onURLChanged : function
+
+Provide a callback that is run whenever the embed's URL changes.
+
+```js
+{{runkit-embed
+    source='console.log("Hello, world!")'
+    onURLChanged=(action 'onURLChanged')}}
+```
+
+### onEvaluate : function
+
+Provide a callback that is run whenever the embed is evaluated.
+
+```js
+{{runkit-embed
+    source='console.log("Hello, world!")'
+    onEvaluate=(action 'onEvaluate')}}
 ```
 
 ## On-Demand Sourcing

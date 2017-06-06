@@ -20,7 +20,10 @@ export default Ember.Component.extend({
 			'title',
 			'minHeight',
 			'packageTimestamp',
-			'preamble'
+			'preamble',
+			'onLoad',
+			'onURLChanged',
+			'onEvaluate'
 		])
 
 		const element = this.$('.embed')[0]
